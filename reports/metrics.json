@@ -1,0 +1,74 @@
+{
+  "split": {
+    "train": "Jan-Aug",
+    "valid": "Sep-Oct",
+    "test": "Nov-Dec",
+    "rows": {
+      "train": 218601,
+      "valid": 55775,
+      "test": 54145
+    }
+  },
+  "logistic_regression": {
+    "roc_auc": 0.7272,
+    "pr_auc": 0.4653,
+    "brier": 0.148,
+    "log_loss": 0.4642,
+    "precision_top10pct": 0.5677,
+    "base_rate": 0.2182
+  },
+  "lightgbm_uncalibrated": {
+    "roc_auc": 0.7332,
+    "pr_auc": 0.4829,
+    "brier": 0.146,
+    "log_loss": 0.4581,
+    "precision_top10pct": 0.5926,
+    "base_rate": 0.2182
+  },
+  "lightgbm_calibrated": {
+    "roc_auc": 0.7329,
+    "pr_auc": 0.47,
+    "brier": 0.1475,
+    "log_loss": 0.4642,
+    "precision_top10pct": 0.5734,
+    "base_rate": 0.2182
+  },
+  "optuna": {
+    "trials": 40,
+    "best_valid_auc": 0.7314,
+    "best_params": {
+      "learning_rate": 0.06598254106850841,
+      "num_leaves": 17,
+      "min_child_samples": 122,
+      "feature_fraction": 0.5852620618436457,
+      "bagging_fraction": 0.5325257964926398,
+      "lambda_l2": 6.245139574743075,
+      "cat_smooth": 48.315969620653405
+    },
+    "best_iteration": 358
+  },
+  "ablation_without_rotation_features": {
+    "roc_auc": 0.7195,
+    "pr_auc": 0.4263,
+    "brier": 0.1516,
+    "log_loss": 0.4711,
+    "precision_top10pct": 0.5298,
+    "base_rate": 0.2182
+  },
+  "test_auc_by_month": {
+    "11": 0.7074,
+    "12": 0.7296
+  },
+  "top_features_mean_abs_shap": {
+    "sched_dep_hour": 0.5796,
+    "humid": 0.2259,
+    "origin_prev_day_delay_rate": 0.1517,
+    "carrier": 0.1338,
+    "prev_leg_dep_delay": 0.1227,
+    "temp": 0.1172,
+    "pressure": 0.1164,
+    "carrier_hist_delay_rate": 0.1136,
+    "dest": 0.1073,
+    "day_of_week": 0.0669
+  }
+}
